@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "96735695215",
+    "project_id": "smartfertigation-21afa",
+    "storage_bucket": "smartfertigation-21afa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96735695215:android:d9fe0d89cbe293041d189a",
+        "android_client_info": {
+          "package_name": "com.example.smartfertigation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1zd97wYzABRX-40E63tKBLwEVNS72zkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SmartFertigation</string>
+    <string name="formulario_registro">Formulario de Registro</string>
+    <string name="register_emai">Email</string>
+    <string name="register_name">Nombre Completo</string>
+    <string name="register_contrasena">Contraseña</string>
+    <string name="register_confirmar_contrasena">Confirmar Contraseña</string>
+    <string name="register_cel">Cel:</string>
+    <string name="register_empresa">Empresa</string>
+    <string name="register_ciudad">Ciudad</string>
+    <string name="register_boton">Regístrate</string>
+    <string name="bienvenido_smart_fertigation">Bienvenido a Smart Fertigation</string>
+    <string name="login_email">Email</string>
+    <string name="login_contrasena">Contraseña</string>
+    <string name="login_iniciar_sesion">Iniciar Sesión</string>
+    <string name="login_registrate">Regístrate</string>
+</resources>
