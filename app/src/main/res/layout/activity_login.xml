@@ -64,8 +64,7 @@
                 android:id="@+id/login_email_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_email"
-                android:textColor="@color/material_dynamic_neutral60" />
+                android:hint="@string/login_email" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -81,8 +80,7 @@
                 android:id="@+id/login_password_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_contrasena"
-                android:textColor="@color/material_dynamic_neutral60" />
+                android:hint="@string/login_contrasena" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button

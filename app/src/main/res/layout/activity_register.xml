@@ -10,7 +10,7 @@
         android:id="@+id/imageView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
+        android:layout_marginTop="-100dp"
         android:src="@drawable/img_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,9 +20,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="160dp"
+        android:layout_marginEnd="40dp"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -30,7 +30,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="0.0">
 
         <TextView
             android:id="@+id/register_formulario_registro_text_view"
@@ -44,9 +44,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_nombre_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/register_formulario_registro_text_view">
@@ -54,14 +54,15 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/register_nombre_text_input_edit_text"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/register_name" />
+                android:layout_height="match_parent"
+                android:hint="@string/register_name"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_email_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,13 +72,14 @@
                 android:id="@+id/register_email_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_emai" />
+                android:hint="@string/register_emai"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_password_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -87,13 +89,15 @@
                 android:id="@+id/register_password_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_contrasena" />
+                android:hint="@string/register_contrasena"
+                android:inputType="text|textPassword"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_confirmar_password_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -103,13 +107,15 @@
                 android:id="@+id/register_confirmar_password_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_confirmar_contrasena" />
+                android:hint="@string/register_confirmar_contrasena"
+                android:inputType="text|textPassword"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_cel_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -119,13 +125,14 @@
                 android:id="@+id/register_cel_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_cel" />
+                android:hint="@string/register_cel"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_empresa_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -135,13 +142,14 @@
                 android:id="@+id/register_empresa_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_empresa" />
+                android:hint="@string/register_empresa"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/register_ciudad_text_input_layout"
-            android:layout_width="250dp"
-            android:layout_height="50dp"
+            android:layout_width="270dp"
+            android:layout_height="60dp"
             android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -151,16 +159,18 @@
                 android:id="@+id/register_ciudad_text_input_edit_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/register_ciudad" />
+                android:hint="@string/register_ciudad"
+                android:textSize="14sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/register_registrate_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             android:backgroundTint="@color/green_default"
             android:text="@string/register_boton"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/register_ciudad_text_input_layout" />
