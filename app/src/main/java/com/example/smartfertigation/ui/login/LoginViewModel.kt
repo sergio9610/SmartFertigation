@@ -46,6 +46,7 @@ import kotlinx.coroutines.launch
                                     when (msg){
                                         "The email address is already in use by another account." -> msg = "Ya existe una cuenta con ese correo electrónico"
                                         "A network error (such as timeout, interrupted connection or unreachable host) has ocurred." -> msg = "Revise su conexión a internet"
+                                        "An internal error has ocurred. [ INVALID_LOGIN_CREDENTIALS ]" -> msg = "Correo electrónico o contraseña inválida"
                                     }
                                     _errorMsg.postValue(msg)
                                 }

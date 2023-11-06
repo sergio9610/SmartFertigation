@@ -1,11 +1,14 @@
 package com.example.smartfertigation.ui.login
 
 import android.content.Intent
+import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.databinding.ActivityLoginBinding
+import com.example.smartfertigation.ui.main.MainActivity
 import com.example.smartfertigation.ui.register.RegisterActivity
 
 @UnstableApi class LoginActivity : AppCompatActivity() {
@@ -19,6 +22,18 @@ import com.example.smartfertigation.ui.register.RegisterActivity
         val view = loginBinding.root
         setContentView(view)
 
+        loginViewModel.errorMsg.observe(this){msg-> //para fragment donde va el this se pone viewLifeCycleOwner
+            showErrorMsg(msg)
+        }
+
+        loginViewModel.registerSuccess.observe(this){
+            val intent = Intent(this, MainActivity::class.java)
+            //intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
+            // TODO cambiar finish por flag en intent
+            startActivity(intent)
+            finish()
+        }
+
         loginBinding.loginRegistrarseButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
             startActivity(intent)
@@ -28,6 +43,7 @@ import com.example.smartfertigation.ui.register.RegisterActivity
             val email = loginBinding.loginEmailTextInputEditText.text.toString()
             val password = loginBinding.loginPasswordTextInputEditText.text.toString()
             loginViewModel.validateFields(email, password)
+
             /*val flag = loginViewModel.validateFields(email, password)
             if(flag){
                 val intent = Intent(this, MainActivity::class.java)
@@ -51,5 +67,9 @@ import com.example.smartfertigation.ui.register.RegisterActivity
     private fun showErrorMsg(msg:String?){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }*/
+    }
+
+    private fun showErrorMsg(msg:String?){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
 }

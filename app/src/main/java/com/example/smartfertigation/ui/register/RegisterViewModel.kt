@@ -4,9 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.util.Log
 import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.data.ResourceRemote
 import com.example.smartfertigation.data.UserRepository
+import com.example.smartfertigation.model.User
 import emailValidator
 import kotlinx.coroutines.launch
 
@@ -39,8 +41,11 @@ import kotlinx.coroutines.launch
                             result.let { resourceRemote ->
                                 when (resourceRemote){
                                     is ResourceRemote.Success -> {
-                                        _registerSuccess.postValue(true)
-                                        _errorMsg.postValue("Usuario creado exitosamente")
+                                        val uid = result.data
+                                        uid?.let { Log.d("uid User", it) }
+                                        val user = User(uid,name, email, cel, company, city)
+                                        createUser(user)
+
                                     }
                                     is ResourceRemote.Error -> {
                                         var msg = result.message
@@ -63,4 +68,27 @@ import kotlinx.coroutines.launch
         }
         return true
     }
+
+    private fun createUser(user: User) {
+        viewModelScope.launch {
+            val result = userRepository.createUser(user)
+            result.let{ resourceRemote ->
+                when(resourceRemote){
+                    is ResourceRemote.Success -> {
+                        _registerSuccess.postValue(true)
+                        _errorMsg.postValue("Usuario creado exitosamente")
+                    }
+                    is ResourceRemote.Error ->{
+                        var msg = result.message
+                        _errorMsg.postValue(msg)
+                    }
+                    else -> {
+                        //don´t use
+                    }
+                }
+            }
+        }
+    }
+
+
 }
