@@ -3,4 +3,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="green_default">#31942E</color>
+    <color name="my_light_primary">#31942E</color>
+    <color name="my_dark_primary">#31942E</color>
+
 </resources>

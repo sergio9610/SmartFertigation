@@ -1,14 +1,13 @@
 package com.example.smartfertigation.ui.login
 
 import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.databinding.ActivityLoginBinding
-import com.example.smartfertigation.ui.main.MainActivity
+import com.example.smartfertigation.ui.main.ui.MainActivity
 import com.example.smartfertigation.ui.register.RegisterActivity
 
 @UnstableApi class LoginActivity : AppCompatActivity() {
