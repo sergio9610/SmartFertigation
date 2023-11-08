@@ -7,9 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.databinding.FragmentNewCalculationBinding
 
-class
+@UnstableApi class
 NewCalculationFragment : Fragment() {
 
     private lateinit var newCalculationViewModel: NewCalculationViewModel
@@ -22,6 +23,10 @@ NewCalculationFragment : Fragment() {
 
         newCalculationViewModel.errorMsg.observe(viewLifecycleOwner){msg-> //para fragment donde va el this se pone viewLifeCycleOwner
             showErrorMsg(msg)
+        }
+
+        newCalculationViewModel.createNutrientsSuccess.observe(viewLifecycleOwner){
+            requireActivity().onBackPressedDispatcher.onBackPressed()
         }
 
         with(newCalculationBinding){
