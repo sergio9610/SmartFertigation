@@ -23,7 +23,11 @@ import kotlinx.coroutines.launch
     private val _homeList: MutableLiveData<MutableList<nutrients>> = MutableLiveData()
     val homeList : LiveData<MutableList<nutrients>> = _homeList
 
+    private val _nutrientsErased: MutableLiveData<Boolean> = MutableLiveData()
+    val nutrientsErased: LiveData<Boolean> = _nutrientsErased
+
     fun loadNutrients() {
+        homeListLocal.clear()
         viewModelScope.launch {
             val result = nutrientsRepository.loadNutrients()
             result.let {resourceRemote ->
@@ -35,6 +39,28 @@ import kotlinx.coroutines.launch
                         }
                         _homeList.postValue(homeListLocal)
                     }
+                    is ResourceRemote.Error -> {
+                        val msg = result.message
+                        _errorMsg.postValue(msg)
+                    }
+                    else -> {
+                        //don´t use
+                    }
+                }
+            }
+        }
+    }
+
+    fun deleteNutrients(nutrients: nutrients) {
+        viewModelScope.launch {
+            val result = nutrientsRepository.deletenutrients(nutrients)
+            result.let {resourceRemote ->
+                when (resourceRemote){
+                    is ResourceRemote.Success -> {
+                        _nutrientsErased.postValue(true)
+                        _errorMsg.postValue("Lista de nutrientes eliminada con éxito")
+                    }
+
                     is ResourceRemote.Error -> {
                         val msg = result.message
                         _errorMsg.postValue(msg)

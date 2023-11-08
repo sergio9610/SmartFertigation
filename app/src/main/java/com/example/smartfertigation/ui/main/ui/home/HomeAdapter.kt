@@ -12,7 +12,7 @@ import com.example.smartfertigation.model.nutrients
 class HomeAdapter(
     private val homeList :MutableList<nutrients>,
     private val onItemClicked: (nutrients) -> Unit,
-    //private val onItemLongClicked:
+    private val onItemLongClicked: (nutrients) -> Unit,
 ): RecyclerView.Adapter<HomeAdapter.HomeViewHolder> () {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
@@ -26,6 +26,10 @@ class HomeAdapter(
         val nutriente = homeList[position]
         holder.bind(nutriente)
         holder.itemView.setOnClickListener{onItemClicked(nutriente)}
+        holder.itemView.setOnLongClickListener {
+            onItemLongClicked (nutriente)
+            true
+        }
     }
 
     fun appendItems(newList: MutableList<nutrients>){

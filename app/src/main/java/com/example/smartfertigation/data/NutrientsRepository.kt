@@ -54,4 +54,22 @@ import kotlinx.coroutines.tasks.await
         }
     }
 
+    @SuppressLint("Range")
+    suspend fun deletenutrients(nutrients: nutrients?): ResourceRemote<String?> {
+        return try {
+            val result = nutrients?.id?.let { db.collection("users_nutrients").document(it).delete().await() }
+            ResourceRemote.Success(data = nutrients?.id)
+        } catch (e: FirebaseFirestoreException){
+            Log.e("FirebaseFirestoreException", e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        } catch (e: FirebaseNetworkException){
+            Log.e("FirebaseNetworkException", e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+        catch (e: FirebaseException){
+            Log.e("FirebaseException", e.localizedMessage)
+            ResourceRemote.Error(message = e.localizedMessage)
+        }
+    }
+
 }

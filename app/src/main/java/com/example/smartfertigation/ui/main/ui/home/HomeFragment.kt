@@ -38,7 +38,13 @@ import com.example.smartfertigation.model.nutrients
             homeAdapter.appendItems(homeList)
         }
 
-        homeAdapter = HomeAdapter(homeList, onItemClicked = { onHomeItemClicked(it) })
+        homeViewModel.nutrientsErased.observe(viewLifecycleOwner) {
+            homeViewModel.loadNutrients()
+        }
+
+        homeAdapter = HomeAdapter(homeList, onItemClicked = { onHomeItemClicked(it)}, onItemLongClicked = {
+            onHomeLongItemClicked(it)
+        })
 
         homeBinding.homeRecyclerView.apply{
             layoutManager = LinearLayoutManager(this@HomeFragment.requireContext())
@@ -52,6 +58,11 @@ import com.example.smartfertigation.model.nutrients
 
         return view
     }
+
+    private fun onHomeLongItemClicked(nutrients: nutrients) {
+        homeViewModel.deleteNutrients(nutrients)
+    }
+
 
     private fun showErroMsg(msg: String?) {
         Toast.makeText(requireActivity(), msg, Toast.LENGTH_SHORT).show()
