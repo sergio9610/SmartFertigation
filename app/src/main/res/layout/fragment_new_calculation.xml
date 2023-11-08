@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.newcalculation.NewCalculationFragment" >
+
+    <LinearLayout
+        android:id="@+id/smart_fertigation_title_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="120dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:src="@drawable/logo" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/smart_fertigation_title_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:text="@string/smart_fertigation_title"
+                android:textAlignment="center"
+                android:textColor="@color/green_default" />
+
+            <TextView
+                android:id="@+id/smart_fertigation_subtitle_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/smart_fertigation_subtitle"
+                android:textAlignment="center"
+                android:textColor="@color/green_default" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/datos_cultivo_linear_layout"
+        android:layout_width="380dp"
+        android:layout_height="140dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/smart_fertigation_title_linear_layout">
+
+        <TextView
+            android:id="@+id/datos_cultivo_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/datos_cultivo_title"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:id="@+id/datos_cultivo_ciudad_cultivo_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ciudad_datos_cultivo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="@string/ciudad_datos_cultivo"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/ciudad_datos_cultivo_edit_text"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/ciudad_cultivo_edit_text"
+                android:inputType="text" />
+
+            <TextView
+                android:id="@+id/tipo_cultivo_datos_cultivo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="@string/tipo_cultivo_datos_cultivo"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/tipo_cultivo_datos_cultivo_edit_text"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/tipo_cultivo_edit_text"
+                android:inputType="text" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/datos_cultivo_metro_altura_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/metros_datos_cultivo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="@string/metros_datos_cultivo"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/metros_datos_cultivo_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/metros_cuadrados_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/altura_datos_cultivo_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_weight="1"
+                android:text="@string/altura_datos_cultivo"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/altura_datos_cultivo_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/altura_datos_cultivo_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nutrientes_linear_layout"
+        android:layout_width="380dp"
+        android:layout_height="250dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/gray_default"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datos_cultivo_linear_layout">
+
+        <TextView
+            android:id="@+id/cantidad_nutrientes_title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cantidad_nutrientes_title"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:id="@+id/nutrientes_n_no3_n_nh4_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/n_no3_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/n_no3_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/n_no3_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/n_nh4_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/n_nh4_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/n_nh4_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nutrientes_p_k_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/p_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/p_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/p_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/k_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/k_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/k_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nutrientes_ca_mg_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/ca_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/ca_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/ca_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/mg_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/mg_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/mg_nutrientes_edit_text_number_decimal"
+                android:layout_width="80dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/nutrientes_s_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/s_nutrientes_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/s_nutrientes"
+                android:textAlignment="center" />
+
+            <EditText
+                android:id="@+id/s_nutrientes_edit_text_number_decimal"
+                android:layout_width="30dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/nutrientes_edit_text_number_decimal"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/calcular_nutrientes_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/green_default"
+        android:text="@string/calcular_nutrientes_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nutrientes_linear_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

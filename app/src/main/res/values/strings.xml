@@ -31,4 +31,25 @@
     <string name="nav_header_smart_fertigation_title">Smart Fertigation</string>
     <string name="menu_acerca_de">Acerca de</string>
     <string name="menu_perfil">Perfil</string>
+    <string name="smart_fertigation_title">SMART FERTIGATION</string>
+    <string name="smart_fertigation_subtitle">Dosificador de fertilización edáfica</string>
+    <string name="datos_cultivo_title">"Datos del Cultivo "</string>
+    <string name="ciudad_datos_cultivo">Ciudad</string>
+    <string name="tipo_cultivo_datos_cultivo">Tipo Cultivo</string>
+    <string name="tipo_cultivo_edit_text">arroz</string>
+    <string name="ciudad_cultivo_edit_text">Cali</string>
+    <string name="metros_datos_cultivo">M2</string>
+    <string name="metros_cuadrados_edit_text_number_decimal">200</string>
+    <string name="altura_datos_cultivo">Altura Aprox</string>
+    <string name="altura_datos_cultivo_edit_text_number_decimal">1000</string>
+    <string name="cantidad_nutrientes_title">Ingresa las cantidades de nutrientes a \nsuplir (gr/planta)</string>
+    <string name="n_no3_nutrientes">N-NO3</string>
+    <string name="nutrientes_edit_text_number_decimal">10</string>
+    <string name="n_nh4_nutrientes">N-NH4</string>
+    <string name="p_nutrientes">P</string>
+    <string name="k_nutrientes">K</string>
+    <string name="ca_nutrientes">Ca</string>
+    <string name="mg_nutrientes">Mg</string>
+    <string name="s_nutrientes">S</string>
+    <string name="calcular_nutrientes_button">Calcular</string>
 </resources>

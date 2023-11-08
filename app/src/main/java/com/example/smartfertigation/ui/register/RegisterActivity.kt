@@ -38,10 +38,6 @@ import androidx.media3.common.util.UnstableApi
 
             registerViewModel.validateFields(name, email, password, repeatPassword, cel, company, city)
 
-         /*   if (password == repeatPassword){
-               // val info = name + "\n" + email + "\n" + password + "\n" + cel + "\n" + company + "\n" + city
-            } */
-
         }
 
     }

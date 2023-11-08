@@ -3,6 +3,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -58,6 +59,7 @@ dependencies {
     implementation("com.google.firebase:firebase-auth:22.2.0")
     implementation("androidx.media3:media3-common:1.1.1")
     implementation("com.google.firebase:firebase-firestore:24.9.1")
+
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
 

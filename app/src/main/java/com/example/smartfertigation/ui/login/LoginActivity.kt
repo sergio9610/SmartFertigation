@@ -43,29 +43,8 @@ import com.example.smartfertigation.ui.register.RegisterActivity
             val password = loginBinding.loginPasswordTextInputEditText.text.toString()
             loginViewModel.validateFields(email, password)
 
-            /*val flag = loginViewModel.validateFields(email, password)
-            if(flag){
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-            }*/
         }
 
-        /*
-        loginViewModel.errorMessage.observe(this){msg-> //para fragment donde va el this se pone viewLifeCycleOwner
-            showErrorMsg(msg)
-        }
-
-
-        }
-        loginBinding.loginRegistrarseButton.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-    }
-
-    private fun showErrorMsg(msg:String?){
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-    }*/
     }
 
     private fun showErrorMsg(msg:String?){
