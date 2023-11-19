@@ -1,8 +1,9 @@
 package com.example.smartfertigation.ui.login
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.data.ResourceRemote
@@ -10,7 +11,7 @@ import com.example.smartfertigation.data.UserRepository
 import emailValidator
 import kotlinx.coroutines.launch
 
-@UnstableApi class LoginViewModel : ViewModel() {
+@UnstableApi class LoginViewModel(application: Application) : AndroidViewModel(application) {
 
     private val userRepository = UserRepository()
 
@@ -19,6 +20,7 @@ import kotlinx.coroutines.launch
 
     private val _registerSuccess: MutableLiveData<Boolean> = MutableLiveData()
     val registerSuccess: LiveData<Boolean> = _registerSuccess
+
 
     fun validateFields(email: String, password: String): Boolean {
         if(email.isEmpty() || password.isEmpty()){

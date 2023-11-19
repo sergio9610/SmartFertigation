@@ -1,6 +1,8 @@
 package com.example.smartfertigation.ui.login
 
 import android.content.Intent
+import android.content.Context
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -14,6 +16,7 @@ import com.example.smartfertigation.ui.register.RegisterActivity
 @UnstableApi class LoginActivity : AppCompatActivity() {
     private lateinit var loginBinding: ActivityLoginBinding
     private lateinit var loginViewModel: LoginViewModel
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -24,17 +27,18 @@ import com.example.smartfertigation.ui.register.RegisterActivity
         val view = loginBinding.root
         setContentView(view)
 
-        loginViewModel.errorMsg.observe(this){msg-> //para fragment donde va el this se pone viewLifeCycleOwner
-            showErrorMsg(msg)
-        }
+        // Obtener SharedPreferences
+        sharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
 
-        loginViewModel.registerSuccess.observe(this){
-            val intent = Intent(this, MainActivity::class.java)
-            //intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
-            // TODO cambiar finish por flag en intent
-            startActivity(intent)
+        // Verificar si el usuario ya ha iniciado sesión previamente
+        val isUserLoggedIn = sharedPreferences.getBoolean("isUserLoggedIn", false)
+        if (isUserLoggedIn) {
+            // Si el usuario ya ha iniciado sesión, ir directamente a la MainActivity
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }
+
+        setupViewModelObservers()
 
         loginBinding.loginRegistrarseButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -50,6 +54,20 @@ import com.example.smartfertigation.ui.register.RegisterActivity
 
     }
 
+    private fun setupViewModelObservers() {
+        loginViewModel.errorMsg.observe(this) { msg ->
+            showErrorMsg(msg)
+        }
+
+        loginViewModel.registerSuccess.observe(this) {
+            // Guardar el estado de inicio de sesión cuando el usuario inicia sesión exitosamente
+            sharedPreferences.edit().putBoolean("isUserLoggedIn", true).apply()
+
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
+    }
     private fun showErrorMsg(msg:String?){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }
