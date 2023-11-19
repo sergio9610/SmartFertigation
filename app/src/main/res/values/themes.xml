@@ -13,4 +13,9 @@
     <style name="Theme.SmartFertigation.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="Theme.SmartFertigation.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    
+    <style name="SplashTheme" parent="Base.Theme.SmartFertigation">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
+    
 </resources>

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.media3.common.util.UnstableApi
+import com.example.smartfertigation.R
 import com.example.smartfertigation.databinding.ActivityLoginBinding
 import com.example.smartfertigation.ui.main.ui.MainActivity
 import com.example.smartfertigation.ui.register.RegisterActivity
@@ -15,6 +16,8 @@ import com.example.smartfertigation.ui.register.RegisterActivity
     private lateinit var loginViewModel: LoginViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
+        setTheme(R.style.Theme_SmartFertigation)
         super.onCreate(savedInstanceState)
         loginBinding = ActivityLoginBinding.inflate(layoutInflater)
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
