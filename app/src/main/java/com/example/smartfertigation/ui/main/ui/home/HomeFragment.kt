@@ -4,12 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.media3.common.util.UnstableApi
-import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.smartfertigation.databinding.FragmentHomeBinding
@@ -55,6 +53,10 @@ import com.example.smartfertigation.model.nutrients
         homeBinding.newCalculationButton.setOnClickListener{
             findNavController().navigate(HomeFragmentDirections.actionNavHomeToNewCalculationFragment())
         }
+
+        /*homeBinding.newCalculationButton.setOnClickListener{
+            findNavController().navigate(HomeFragmentDirections.actionNavHomeToNavWebView())
+        }*/
 
         return view
     }

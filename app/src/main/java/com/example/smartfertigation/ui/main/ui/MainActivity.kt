@@ -1,28 +1,48 @@
 package com.example.smartfertigation.ui.main.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.navigation.NavigationView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.drawerlayout.widget.DrawerLayout
+import androidx.lifecycle.ViewModelProvider
+import androidx.media3.common.util.UnstableApi
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.drawerlayout.widget.DrawerLayout
-import androidx.appcompat.app.AppCompatActivity
 import com.example.smartfertigation.R
 import com.example.smartfertigation.databinding.ActivityMainBinding
+import com.example.smartfertigation.ui.login.LoginActivity
+import com.example.smartfertigation.ui.login.LoginViewModel
+import com.google.android.material.navigation.NavigationView
 
-class MainActivity : AppCompatActivity() {
+@UnstableApi class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
+    private lateinit var loginViewModel: LoginViewModel
+    private lateinit var mainViewModel: MainViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityMainBinding.inflate(layoutInflater)
+        mainViewModel = ViewModelProvider(this)[MainViewModel::class.java]
         setContentView(binding.root)
+
+        mainViewModel.verifyUser()
+
+        mainViewModel.errorMsg.observe(this){msg ->
+            showErrorMsg(msg)
+        }
+
+        mainViewModel.userLoggedIn.observe(this){
+            val intent = Intent(this,LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
@@ -50,4 +70,22 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
+    private fun showErrorMsg(msg:String?){
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
+    }
+
+   /* fun cerrarSesion() {
+
+        val intent = Intent(this, LoginActivity::class.java)
+
+        // Limpia la pila de actividades y coloca la actividad de inicio de sesión en la parte superior
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+        // Inicia la actividad de inicio de sesión
+        startActivity(intent)
+
+        // Cierra la actividad actual
+        finish()
+    }*/
 }

@@ -25,6 +25,7 @@
         android:clickable="true"
         android:contentDescription="Nuevo Cálculo"
         android:src="@drawable/baseline_add_circle_24"
+        app:backgroundTint="@color/green_default"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

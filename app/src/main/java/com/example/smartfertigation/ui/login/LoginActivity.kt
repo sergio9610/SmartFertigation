@@ -1,11 +1,10 @@
 package com.example.smartfertigation.ui.login
 
 import android.content.Intent
-import android.content.Context
 import android.content.SharedPreferences
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.R
@@ -26,19 +25,17 @@ import com.example.smartfertigation.ui.register.RegisterActivity
         loginViewModel = ViewModelProvider(this)[LoginViewModel::class.java]
         val view = loginBinding.root
         setContentView(view)
+        //setupViewModelObservers()
 
-        // Obtener SharedPreferences
-        sharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
-
-        // Verificar si el usuario ya ha iniciado sesión previamente
-        val isUserLoggedIn = sharedPreferences.getBoolean("isUserLoggedIn", false)
-        if (isUserLoggedIn) {
-            // Si el usuario ya ha iniciado sesión, ir directamente a la MainActivity
-            startActivity(Intent(this, MainActivity::class.java))
-            finish()
+        loginViewModel.errorMsg.observe(this){msg ->
+            showErrorMsg(msg)
         }
 
-        setupViewModelObservers()
+        loginViewModel.registerSuccess.observe(this){
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         loginBinding.loginRegistrarseButton.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -52,9 +49,20 @@ import com.example.smartfertigation.ui.register.RegisterActivity
 
         }
 
+        // Obtener SharedPreferences
+        /*sharedPreferences = getSharedPreferences("MyAppPreferences", Context.MODE_PRIVATE)
+
+        // Verificar si el usuario ya ha iniciado sesión previamente
+        val isUserLoggedIn = sharedPreferences.getBoolean("isUserLoggedIn", false)
+        if (isUserLoggedIn) {
+            // Si el usuario ya ha iniciado sesión, ir directamente a la MainActivity
+            startActivity(Intent(this, MainActivity::class.java))
+            finish()
+        }*/
+
     }
 
-    private fun setupViewModelObservers() {
+    /*private fun setupViewModelObservers() {
         loginViewModel.errorMsg.observe(this) { msg ->
             showErrorMsg(msg)
         }
@@ -67,7 +75,7 @@ import com.example.smartfertigation.ui.register.RegisterActivity
             startActivity(intent)
             finish()
         }
-    }
+    }*/
     private fun showErrorMsg(msg:String?){
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
     }

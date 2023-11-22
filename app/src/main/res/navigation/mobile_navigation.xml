@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_nav_home_to_newCalculationFragment"
             app:destination="@id/nav_newcalculation" />
+        <action
+            android:id="@+id/action_nav_home_to_nav_web_view"
+            app:destination="@id/nav_web_view" />
     </fragment>
 
     <fragment
@@ -31,4 +34,9 @@
         android:name="com.example.smartfertigation.ui.newcalculation.NewCalculationFragment"
         android:label="fragment_new_calculation"
         tools:layout="@layout/fragment_new_calculation" />
+    <fragment
+        android:id="@+id/nav_web_view"
+        android:name="com.example.smartfertigation.ui.webview.WebViewFragment"
+        android:label="fragment_web_view"
+        tools:layout="@layout/fragment_web_view" />
 </navigation>
