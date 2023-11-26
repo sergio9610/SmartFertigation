@@ -6,23 +6,28 @@ import androidx.media3.common.util.UnstableApi
 import com.example.smartfertigation.model.nutrients
 import com.google.firebase.FirebaseException
 import com.google.firebase.FirebaseNetworkException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestoreException
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.tasks.await
 
+
 @UnstableApi class NutrientsRepository {
 
     private var db = Firebase.firestore
-
+    private var auth: FirebaseAuth = Firebase.auth
     @SuppressLint("Range")
     suspend fun createNutrients(nutrients: nutrients) :  ResourceRemote<String?> {
         return try {
             val document = db.collection("users_nutrients").document()
             nutrients.id = document.id
+            nutrients.uid = auth.uid
             db.collection("users_nutrients").document(document.id).set(nutrients).await()
             ResourceRemote.Success(data = document.id)
+
         } catch (e: FirebaseFirestoreException){
             Log.e("FirebaseFirestoreException", e.localizedMessage)
             ResourceRemote.Error(message = e.localizedMessage)
@@ -39,7 +44,7 @@ import kotlinx.coroutines.tasks.await
     @SuppressLint("Range")
     suspend fun loadNutrients() : ResourceRemote<QuerySnapshot?> {
         return try {
-            val result = db.collection("users_nutrients").get().await()
+            val result = db.collection("users_nutrients").whereEqualTo("uid",auth.uid).get().await()
             ResourceRemote.Success(data = result)
         } catch (e: FirebaseFirestoreException){
             Log.e("FirebaseFirestoreException", e.localizedMessage)

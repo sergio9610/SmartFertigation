@@ -8,6 +8,6 @@ data class nutrients(
     var k: Float? = null,
     var ca: Float? = null,
     var mg: Float? = null,
-    var s: Float? = null
-
+    var s: Float? = null,
+    var uid: String? = null
 )
